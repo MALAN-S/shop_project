@@ -1,10 +1,16 @@
 package com.xeroxshop.dto;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-public record DailySales(
-    LocalDate date,
-    BigDecimal total
-) {}
-
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class DailySales {
+    private LocalDate date;
+    private BigDecimal total;
+}

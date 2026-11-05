@@ -17,7 +17,7 @@ const links = [
 function Sidebar() {
   return (
     <aside className="w-64 bg-white shadow-md flex flex-col">
-      <div className="p-4 text-xl font-bold text-indigo-600 border-b">Xerox Shop</div>
+      <div className="p-4 text-xl font-bold text-indigo-600 border-b">Shop</div>
       <nav className="flex-1 overflow-y-auto">
         {links.map((link) => (
           <NavLink

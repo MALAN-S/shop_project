@@ -1,10 +1,16 @@
 package com.xeroxshop.dto;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.util.UUID;
 
-public record UserResponse(
-    UUID id,
-    String username,
-    String role
-) {}
-
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class UserResponse {
+    private UUID id;
+    private String username;
+    private String role;
+}
