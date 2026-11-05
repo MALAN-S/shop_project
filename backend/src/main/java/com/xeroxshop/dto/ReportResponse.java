@@ -1,23 +1,18 @@
 package com.xeroxshop.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.List;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class ReportResponse {
-    private BigDecimal totalSales;
-    private int totalBills;
-    private BigDecimal xeroxSales;
-    private BigDecimal colorPrintSales;
-    private BigDecimal stationerySales;
-    private BigDecimal cashSales;
-    private BigDecimal upiSales;
-    private BigDecimal cardSales;
-    private List<DailySales> dailySales;
-}
+public record ReportResponse(
+    BigDecimal totalSales,
+    int totalBills,
+    BigDecimal xeroxSales,
+    BigDecimal colorPrintSales,
+    BigDecimal stationerySales,
+    BigDecimal cashSales,
+    BigDecimal upiSales,
+    BigDecimal cardSales,
+    List<DailySales> dailySales
+) {}
+
