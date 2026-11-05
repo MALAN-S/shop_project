@@ -2,7 +2,6 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
 import Dashboard from './pages/Dashboard';
-// Future pages placeholders
 import Billing from './pages/Billing';
 import Products from './pages/Products';
 import Services from './pages/Services';
@@ -13,12 +12,12 @@ import BillHistory from './pages/BillHistory';
 import Users from './pages/Users';
 import Settings from './pages/Settings';
 
-function App() {
+export default function App() {
   return (
     <Router>
-      <div className="flex h-screen bg-gray-100">
+      <div className="flex h-screen bg-slate-100/70 overflow-hidden font-sans">
         <Sidebar />
-        <main className="flex-1 overflow-auto p-4">
+        <main className="flex-1 overflow-y-auto p-4 md:p-6">
           <Routes>
             <Route path="/" element={<Navigate to="/dashboard" replace />} />
             <Route path="/dashboard" element={<Dashboard />} />
@@ -37,6 +36,3 @@ function App() {
     </Router>
   );
 }
-
-export default App;
-

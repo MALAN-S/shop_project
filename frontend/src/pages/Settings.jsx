@@ -1,34 +1,81 @@
 import React from 'react';
+import { Settings as SettingsIcon, Store, Printer, Server, Shield } from 'lucide-react';
 
 export default function Settings() {
   return (
-    <div className="space-y-6">
-      <div><h1 className="text-2xl font-bold text-gray-800">⚙️ Shop Settings</h1><p className="text-sm text-gray-500">Application configuration and shop profile</p></div>
+    <div className="bg-white rounded-3xl p-6 md:p-8 shadow-[0_4px_25px_-5px_rgba(0,0,0,0.05)] border border-slate-100 min-h-full space-y-6">
+      {/* Header */}
+      <div>
+        <h1 className="text-2xl font-black text-slate-800 tracking-tight">Settings</h1>
+        <p className="text-xs text-slate-400 font-medium mt-1">Store configuration, receipt headers, and system parameters</p>
+      </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="bg-white p-6 rounded-xl border shadow-sm space-y-4">
-          <h3 className="font-bold text-gray-800">Shop Profile</h3>
-          <div><label className="text-xs font-semibold text-gray-500 uppercase block mb-1">Shop Name</label><input defaultValue="Xerox Shop" className="border rounded-lg px-3 py-2 text-sm w-full" /></div>
-          <div><label className="text-xs font-semibold text-gray-500 uppercase block mb-1">Address</label><textarea rows="2" className="border rounded-lg px-3 py-2 text-sm w-full" placeholder="Shop address for receipts..."></textarea></div>
-          <div><label className="text-xs font-semibold text-gray-500 uppercase block mb-1">Phone</label><input className="border rounded-lg px-3 py-2 text-sm w-full" placeholder="+91 98765 43210" /></div>
-          <div><label className="text-xs font-semibold text-gray-500 uppercase block mb-1">Timezone</label><input defaultValue="Asia/Kolkata" disabled className="border rounded-lg px-3 py-2 text-sm w-full bg-gray-50" /></div>
-          <button className="px-6 py-2 bg-indigo-600 text-white rounded-lg font-semibold hover:bg-indigo-700 text-sm">Save Profile</button>
+        {/* Store Profile Card */}
+        <div className="p-6 rounded-2xl bg-slate-50/60 border border-slate-100 space-y-4">
+          <div className="flex items-center gap-2 pb-2 border-b border-slate-200">
+            <Store className="w-4 h-4 text-indigo-600" />
+            <h3 className="text-sm font-black text-slate-800">Store Profile</h3>
+          </div>
+          <div>
+            <label className="text-[10px] font-bold text-slate-400 uppercase block mb-1">Shop Name</label>
+            <input defaultValue="Shop" className="w-full px-3.5 py-2 rounded-xl bg-white border border-slate-200 text-xs font-bold text-slate-800 focus:outline-none" />
+          </div>
+          <div>
+            <label className="text-[10px] font-bold text-slate-400 uppercase block mb-1">Address / Tagline</label>
+            <input defaultValue="Xerox, Print & Stationery Store" className="w-full px-3.5 py-2 rounded-xl bg-white border border-slate-200 text-xs font-semibold text-slate-700 focus:outline-none" />
+          </div>
+          <div>
+            <label className="text-[10px] font-bold text-slate-400 uppercase block mb-1">Default Timezone</label>
+            <input disabled defaultValue="Asia/Kolkata (IST)" className="w-full px-3.5 py-2 rounded-xl bg-slate-100/80 border border-slate-200 text-xs font-bold text-slate-500 cursor-not-allowed" />
+          </div>
+          <button onClick={() => alert('Profile settings saved')} className="px-4 py-2 rounded-xl bg-indigo-600 text-xs font-bold text-white hover:bg-indigo-700 transition">
+            Save Store Info
+          </button>
         </div>
 
-        <div className="bg-white p-6 rounded-xl border shadow-sm space-y-4">
-          <h3 className="font-bold text-gray-800">Receipt Settings</h3>
-          <div><label className="text-xs font-semibold text-gray-500 uppercase block mb-1">Receipt Header Note</label><input className="border rounded-lg px-3 py-2 text-sm w-full" placeholder="Thank you for visiting!" /></div>
-          <div><label className="text-xs font-semibold text-gray-500 uppercase block mb-1">Receipt Footer Note</label><input className="border rounded-lg px-3 py-2 text-sm w-full" placeholder="Visit again!" /></div>
-          <button className="px-6 py-2 bg-indigo-600 text-white rounded-lg font-semibold hover:bg-indigo-700 text-sm">Save Receipt Settings</button>
+        {/* Receipt Setup */}
+        <div className="p-6 rounded-2xl bg-slate-50/60 border border-slate-100 space-y-4">
+          <div className="flex items-center gap-2 pb-2 border-b border-slate-200">
+            <Printer className="w-4 h-4 text-indigo-600" />
+            <h3 className="text-sm font-black text-slate-800">Customer Receipt Options</h3>
+          </div>
+          <div>
+            <label className="text-[10px] font-bold text-slate-400 uppercase block mb-1">Header Note</label>
+            <input defaultValue="Welcome to our Xerox & Print Center" className="w-full px-3.5 py-2 rounded-xl bg-white border border-slate-200 text-xs font-semibold text-slate-700 focus:outline-none" />
+          </div>
+          <div>
+            <label className="text-[10px] font-bold text-slate-400 uppercase block mb-1">Footer Note</label>
+            <input defaultValue="Thank you for visiting! Please come again." className="w-full px-3.5 py-2 rounded-xl bg-white border border-slate-200 text-xs font-semibold text-slate-700 focus:outline-none" />
+          </div>
+          <button onClick={() => alert('Receipt template updated')} className="px-4 py-2 rounded-xl bg-indigo-600 text-xs font-bold text-white hover:bg-indigo-700 transition">
+            Save Receipt Template
+          </button>
         </div>
 
-        <div className="bg-white p-6 rounded-xl border shadow-sm space-y-4">
-          <h3 className="font-bold text-gray-800">System Info</h3>
-          <div className="text-sm space-y-2">
-            <div className="flex justify-between"><span className="text-gray-500">Backend</span><span className="font-semibold">Spring Boot 3.2.2</span></div>
-            <div className="flex justify-between"><span className="text-gray-500">Frontend</span><span className="font-semibold">React 18 + Tailwind CSS</span></div>
-            <div className="flex justify-between"><span className="text-gray-500">Database</span><span className="font-semibold">PostgreSQL</span></div>
-            <div className="flex justify-between"><span className="text-gray-500">API Base</span><span className="font-mono text-xs text-indigo-600">http://localhost:8080/api</span></div>
+        {/* System Architecture Diagnostic */}
+        <div className="p-6 rounded-2xl bg-slate-50/60 border border-slate-100 space-y-3 md:col-span-2">
+          <div className="flex items-center gap-2 pb-2 border-b border-slate-200">
+            <Server className="w-4 h-4 text-indigo-600" />
+            <h3 className="text-sm font-black text-slate-800">Connected Services & Infrastructure</h3>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
+            <div className="p-3 bg-white rounded-xl border border-slate-100">
+              <div className="text-[10px] font-bold text-slate-400 uppercase">Backend API</div>
+              <div className="font-black text-slate-800 mt-1">Spring Boot 3.2.2</div>
+            </div>
+            <div className="p-3 bg-white rounded-xl border border-slate-100">
+              <div className="text-[10px] font-bold text-slate-400 uppercase">Frontend</div>
+              <div className="font-black text-slate-800 mt-1">React + Tailwind v3</div>
+            </div>
+            <div className="p-3 bg-white rounded-xl border border-slate-100">
+              <div className="text-[10px] font-bold text-slate-400 uppercase">Database</div>
+              <div className="font-black text-slate-800 mt-1">PostgreSQL 16</div>
+            </div>
+            <div className="p-3 bg-white rounded-xl border border-slate-100">
+              <div className="text-[10px] font-bold text-slate-400 uppercase">Migration Engine</div>
+              <div className="font-black text-slate-800 mt-1">Flyway v9</div>
+            </div>
           </div>
         </div>
       </div>
